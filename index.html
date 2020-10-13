@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script>
+            choice = ["ROCK", "PAPER", "SCISSORS"];
+
+            function computerPlay(){
+                let computerChoice = choice[Math.floor(Math.random() * choice.length)];
+                return computerChoice;
+            }
+
+            function humanPlay(){
+                let humanChoice = (prompt("Enter your choice: Rock, Paper or Scissors: ")).toUpperCase();
+                return humanChoice ;
+            }
+
+
+            function playRound(playerSelection, computerSelection){
+
+                let p1 = playerSelection;
+                let p2 = computerSelection;
+
+                if (p1 !== p2 ){
+                    if (p1 === choice[0] && p2 === choice[1]) {
+                        return "You Lose! Paper beats Rock";
+                    }
+                    else if (p1 === choice[0] && p2 === choice[2]){
+                        return "You Win! Rock beats Scissors";
+                    }
+                    else if (p1 === choice[1] && p2 === choice [0]){
+                        return "You Win! Paper beats Rock";
+                    }
+                    else if (p1 === choice [1] && p2 === choice [2]){
+                        return "You Lose! Scissors beats Paper";
+                    }
+                    else if (p1 === choice [2] && p2 === choice [0]){
+                        return "You Lose! Rock beats Scissors";
+                    }
+                    else if (p1 === choice [2] && p2 === choice [1]){
+                        return "You Win! Scissors beats Paper";
+                    }
+                }
+                    else (p1 === p2 )
+                    return "It was a Draw!!!"; 
+                    
+                }
+            
+             
+                const playerSelection = humanPlay(); 
+                console.log (`You choose ${playerSelection}`); 
+
+                const computerSelection = computerPlay(); 
+                console.log (`Computer choose ${computerSelection}`); 
+
+
+                console.log(playRound(playerSelection, computerSelection));
+
+
+
+
+        </script>
+    </body>
+</html>
