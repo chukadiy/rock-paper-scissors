@@ -8,6 +8,8 @@
     <body>
         <script>
             choice = ["ROCK", "PAPER", "SCISSORS"];
+            var humanScore = 0 ;
+            var computerScore = 0;
 
             function computerPlay(){
                 let computerChoice = choice[Math.floor(Math.random() * choice.length)];
@@ -19,46 +21,73 @@
                 return humanChoice ;
             }
 
-
             function playRound(playerSelection, computerSelection){
 
                 let p1 = playerSelection;
                 let p2 = computerSelection;
 
-                if (p1 !== p2 ){
-                    if (p1 === choice[0] && p2 === choice[1]) {
-                        return "You Lose! Paper beats Rock";
-                    }
-                    else if (p1 === choice[0] && p2 === choice[2]){
-                        return "You Win! Rock beats Scissors";
-                    }
-                    else if (p1 === choice[1] && p2 === choice [0]){
-                        return "You Win! Paper beats Rock";
-                    }
-                    else if (p1 === choice [1] && p2 === choice [2]){
-                        return "You Lose! Scissors beats Paper";
-                    }
-                    else if (p1 === choice [2] && p2 === choice [0]){
-                        return "You Lose! Rock beats Scissors";
-                    }
-                    else if (p1 === choice [2] && p2 === choice [1]){
-                        return "You Win! Scissors beats Paper";
-                    }
-                }
-                    else (p1 === p2 )
+                switch (p1 !== p2 ){
+
+                    case (p1 === choice[0] && p2 === choice[1]): 
+                    computerScore++;
+                    return "You Lose! Paper beats Rock";
+                    //break;
+
+                    case (p1 === choice[0] && p2 === choice[2]): 
+                    humanScore++;
+                    return "You Win! Rock beats Scissors";
+                   // break;
+
+                    case (p1 === choice[1] && p2 === choice[0]): 
+                    humanScore++;
+                    return "You Win! Paper beats Rock";
+                   // break;
+
+                    case (p1 === choice[1] && p2 === choice[2]): 
+                    computerScore++;
+                    return "You Lose! Scissors beats Paper";
+                   // break;
+
+                    case (p1 === choice[2] && p2 === choice[0]): 
+                    computerScore++;
+                    return "You Lose! Rock beats Scissors";
+                  //  break;
+
+                    case (p1 === choice[2] && p2 === choice[1]): 
+                    humanScore++;
+                    return "You Win! Scissors beats Paper";
+                 //   break;
+
+                    case (p1 === p2):
+                    humanScore++;
+                    computerScore++;
                     return "It was a Draw!!!"; 
-                    
+                   // break;
                 }
-            
-             
+            } 
+
                 const playerSelection = humanPlay(); 
                 console.log (`You choose ${playerSelection}`); 
 
                 const computerSelection = computerPlay(); 
-                console.log (`Computer choose ${computerSelection}`); 
+                console.log (`Computer choose ${computerSelection}`);
 
 
-                console.log(playRound(playerSelection, computerSelection));
+
+
+                function game (){
+                    for (i = 1; i < 6; i++){
+                        console.log(playRound(playerSelection, computerSelection));
+                        return `Human ${humanScore} :  Computer ${computerScore}`;
+                    }
+                    if (humanScore > computerScore){
+                        return "you won the game!";
+                    }else {
+                        return "you lost the game!";
+                }
+                }
+
+                console.log(game());
 
 
 
