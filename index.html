@@ -1,120 +1,72 @@
+<!--author: @chukadiy-->
 <!DOCTYPE html>
 <html>
+    <meta charset="utf-8">
     <head>
         <title>
             Classic Rock, Paper, and Scissors 
         </title>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<script type ="text/javascript" src = "script.js"> </script> -->
     </head>
     <body>
-        <script>
-            //2. Create an array that tells computer what choices it is allowed to pick 
-            choice = ["ROCK", "PAPER", "SCISSORS"];
 
-            //declare a score for human and computer 
-            var humanScore = 0 ;
-            var computerScore = 0;
-            let count = humanScore + computerScore ;
+        <div class ="top">
+                <h1> ROCK | PAPER | SCISSORS</h1> 
+        </div>
 
 
-            //1.  create a function telling computer how to select choice randomly 
-            function computerPlay(){
-                let computerChoice = choice[Math.floor(Math.random() * choice.length)];
-                return computerChoice;
-            }
+        <div class = "center">
 
-            //4. create a function that makes the decisions based on selections 
-            function playRound(playerSelection, computerSelection)  {
+            <div class = "message">
+                <p> - You won this Round - </p>
+            </div>
 
-            //4a. Assign p1 and p2 as the container for playerselection and computerSelection.. becasue its shorter and easier to use
-                playerSelection = prompt("Enter your choice: Rock, Paper or Scissors: ");
-                let p1 = playerSelection.toUpperCase(); 
-                let p2 = computerSelection = computerPlay();
+            <div class = "game-interface">
 
-                console.log (`You choose ${p1}`); 
-                console.log (`Computer choose ${p2}`);
+                <div class = "human">
+                    <div id = "human-name"> Human </div>
+                    <div id = "human-score"> <p1> 01 </p1> </div>
+                    <div id = "human-wins"> 
+                        <p2> Wins </p2> 
+                        <span> 01 </span>
+                    </div>
+                </div>
 
-            //4b. initially had the if condition at the bottom. 
+                <div class = "game">
+                        <div id = "game-round"> 
+                            <p2> Games Played : </p2> <span> 0 </span> 
+                            <p2> Rounds : </p2> <span> 5 </span>
+                            <p2> Draw : </p2> <span> 3 </span> 
+                        </div> 
+                        <div id = "game-message"> <span> Paper Beats Rock!!! </span></div>       
+                        <div id = "game-display">
+                            <img id = "human-choice" src="images/paperwins.png"> 
+                            <img id = "computer-choice" src="images/rockwins.png"> 
+                        </div>     
+                            
+                        <button id = "game-restart" type = "button" onclick=""> Restart</button>                           
+                </div>
 
-                switch (p1 === choice[0] || p1 === choice[1] || p1 === choice[2])   {
+                <div class = "computer">
+                        <div id = "computer-name"> Computer </div>
+                        <div id = "computer-score"> <p1> 00 </p1> </div>
+                        <div id = "computer-wins"> 
+                            <p2> Wins </p2> 
+                            <span> 00 </span>
+                        </div>   
+                </div>  
 
-                    case (p1 === p2):
-                    alert ("Please Enter a valid choice: Rock Paper or Scissors!!!");
-                    return "Play Again!!!";  
-                    break;
+            </div>
 
-                    case (p1 === choice[0] && p2 === choice[1]): 
-                    computerScore++;
-                    count ++;
-                    return "You Lose! Paper beats Rock";
-                    break;
+            <div class = "roshambo">
+               <img id ="rock" src="images/rock-select.png"  alt="Rock">  
+               <img id ="paper" src="images/paper-select.png" alt="Paper">
+               <img id = "scissors" src="images/scissors-select.png" alt ="Scissors">
+            </div>  
 
-                    case (p1 === choice[0] && p2 === choice[2]): 
-                    humanScore++;
-                    count ++;
-                    return "You Win! Rock beats Scissors";
-                    break;
+        </div>      
 
-                    case (p1 === choice[1] && p2 === choice[0]): 
-                    humanScore++;
-                    count ++;
-                    return "You Win! Paper beats Rock";
-                    break;
-
-                    case (p1 === choice[1] && p2 === choice[2]): 
-                    computerScore++;
-                    count ++;
-                    return "You Lose! Scissors beats Paper";
-                    break;
-
-                    case (p1 === choice[2] && p2 === choice[0]): 
-                    computerScore++;
-                    count ++;
-                    return "You Lose! Rock beats Scissors";
-                    break;
-
-                    case (p1 === choice[2] && p2 === choice[1]): 
-                    humanScore++;
-                    count ++;
-                    return "You Win! Scissors beats Paper";
-                    break;
-
-                }
-
-                if (p1 !== choice[0] || p1 !== choice[1] || p1 !== choice[2])   {
-                    alert ("enter a valid choice");
-                    count += 0; 
-                    return "Invalid answer";
-                }
-            } 
-            //3. declare selection  for human and computer to test the console.log 
-                const playerSelection = " "; 
-                const computerSelection = " "; 
-             
-
-
-            //5. Function the loops playRound 5 times, saves the score,  and determines the winner based on scores 
-                function game ()    {                   
-                    while (count < 5) {
-                    console.log(playRound(playerSelection, computerSelection));
-                    console.log(`Human ${humanScore} : Computer ${computerScore}`);
-                    }
-
-                    //6. choose the winner of the round
-                    if (humanScore > computerScore){
-                        return "You won the game!";
-                    }
-                    else if (humanScore < computerScore){
-                        return "You lost the game!!"
-                    }
-                    else if (humanScore = computerScore){
-                        return "It was A Tie Round";
-                    }
-                    else {
-                        return "You lost the game!";
-                }
-                }
-
-                console.log(game());
-        </script>
     </body>
 </html>
