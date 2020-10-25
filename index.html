@@ -6,67 +6,96 @@
         <title>
             Classic Rock, Paper, and Scissors 
         </title>
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    
         <link rel="stylesheet" type="text/css" href="style.css">
-    <!--<script type ="text/javascript" src = "script.js"> </script> -->
+
     </head>
     <body>
 
         <div class ="top">
-                <h1> ROCK | PAPER | SCISSORS</h1> 
+                <h1> Classic Rock Paper Scissors </h1> 
         </div>
 
 
         <div class = "center">
 
             <div class = "message">
-                <p> - You won this Round - </p>
+                - Best of 5 Rounds Wins  - 
             </div>
 
             <div class = "game-interface">
 
                 <div class = "human">
-                    <div id = "human-name"> Human </div>
-                    <div id = "human-score"> <p1> 01 </p1> </div>
+                    <div id = "human-name" contentEditable="true"> Name?? </div>
+                    <div id = "human-score"> 00 </div>
                     <div id = "human-wins"> 
-                        <p2> Wins </p2> 
-                        <span> 01 </span>
+                        <p2> Game Wins </p2> 
+                        <span> 00 </span>
                     </div>
                 </div>
 
                 <div class = "game">
                         <div id = "game-round"> 
                             <p2> Games Played : </p2> <span> 0 </span> 
-                            <p2> Rounds : </p2> <span> 5 </span>
-                            <p2> Draw : </p2> <span> 3 </span> 
+                            <p2> Rounds : </p2> <span> 0 </span>
+                            <p2> Draw : </p2> <span> 0 </span> 
                         </div> 
-                        <div id = "game-message"> <span> Paper Beats Rock!!! </span></div>       
+
+                        <div id = "game-message"> Rock, Paper or Scissors ?? </div>   
+
                         <div id = "game-display">
-                            <img id = "human-choice" src="images/paperwins.png"> 
-                            <img id = "computer-choice" src="images/rockwins.png"> 
+                            <img id = "human-choice" src=""> 
+                            <img id = "computer-choice" src=""> 
                         </div>     
                             
-                        <button id = "game-restart" type = "button" onclick=""> Restart</button>                           
+                        <button id = "game-restart" type = "button" onclick=""> Restart </button>                           
                 </div>
 
                 <div class = "computer">
                         <div id = "computer-name"> Computer </div>
-                        <div id = "computer-score"> <p1> 00 </p1> </div>
+                        <div id = "computer-score"> 00 </div>
                         <div id = "computer-wins"> 
-                            <p2> Wins </p2> 
+                            <p2> Game Wins </p2> 
                             <span> 00 </span>
                         </div>   
                 </div>  
 
             </div>
 
-            <div class = "roshambo">
-               <img id ="rock" src="images/rock-select.png"  alt="Rock">  
-               <img id ="paper" src="images/paper-select.png" alt="Paper">
-               <img id = "scissors" src="images/scissors-select.png" alt ="Scissors">
+ <!--       <div class = "roshambo">
+                <button id = "rock" onclick=pickRock() value = "ROCK"> 
+                    <img id = "rock-img" src="images/rock-select.png" alt="rock"> 
+                </button>
+               <button id = "paper" onclick=pickPaper() value = "PAPER"> 
+                   <img id = "paper-img" src="images/paper-select.png" alt="Paper"> 
+                </button>
+               <button id = "scissors" onclick=pickScissors() value = "SCISSORS"> 
+                   <img id = "scissors-img" src="images/scissors-select.png" alt ="Scissors"> 
+                </button>
             </div>  
+-->
+
+            <div class="roshambo">
+
+                <button id = "rock" onclick = pickRock() value = "ROCK" >
+                    <img src="images/rock-select.png" alt="rock">
+                </button>
+
+                <button id = "paper" onclick = pickPaper() value = "PAPER ">
+                    <img src="images/paper-select.png" alt="Paper">
+                </button>
+
+                <button id = "scissors" onclick = pickScissors() value = "SCISSORS" >
+                    <img src="images/scissors-select.png" alt="Scissors">
+                </button>
+
+            </div>
+
 
         </div>      
-
     </body>
+    
+    <script type ="text/javascript" src = "script.js"> </script> 
+
 </html>
+
