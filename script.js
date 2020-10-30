@@ -225,7 +225,7 @@ function game()  {
                 gameDrawn.innerText = `${ties}`;
                 gameMessage.textContent = ``;
                 gameRound.textContent = `${rounds}`;
-                alert(`YOU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click OK to Continue`);
+                alert(`YOU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click Ok/Cancel to Continue`);
                 }
 
             else {
@@ -245,7 +245,7 @@ function game()  {
                 gameMessage.textContent = ``;
                 gameComment.textContent = "";
                 gameRound.textContent = `${rounds}`;
-                alert(`CPU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click Ok to Continue`);
+                alert(`CPU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click Ok/Cancel to Continue`);
                  }
         }
     }
