@@ -1,81 +1,76 @@
 
 /*===================== Target DOM elements ============*/
 
+let humanScore = document.querySelector('#human-score');
 
-let gamesPlayed =  document.getElementById("game-round").children[1];
-console.log(gamesPlayed);
+let computerScore = document.querySelector('#computer-score')
+
+let gameDrawn = document.getElementById("game-round").children[5];
+
+let gameRound = document.getElementById("game-round").children[3];
+
+let gamesPlayed = document.getElementById("game-round").children[1];
 
 let humanWins = document.getElementById("human-wins").children[1];
-console.log(humanWins);
-
-let name = document.getElementById("human-name");
-console.log(name);
 
 let computerWins = document.getElementById("computer-wins").children[1];
-console.log(computerWins);
 
-let winner = document.getElementsByClassName("message");
-console.log(winner);
+let name = document.getElementById("human-name");
 
+let gameComment = document.getElementById("message");
 
+let gameMessage = document.querySelector('#game-message'); 
 
 
 
 /*===============================================================*/
 
-/*===================== Global variables ========================*/
+/*===================== Global Variables ========================*/
 
 choice = ["ROCK","PAPER","SCISSORS"]; 
 
-let rock = choice[0];
-let paper = choice[1];   
-let scissors = choice[2];
-
-var humanScore = 0 ;
-var computerScore = 0;
-var ties = 0 ;
-let rounds = 0 ;
-
- 
-/*==================================================================*/
+var you = 0;
+var cpu = 0;
+let ties = 0;
+let rounds = you + cpu;
+let games = 0;
+let won = 0; 
+let lost = 0;
 
 const playerSelection = " ";
 const computerSelection = " "; 
 
-/*========================================================*/
 
-/*===================== Functions =======================*/
+/*================================== Functions ===============================*/
 
-/*
-for (value in decisions){
-value = "ROCK" ? playRound(rock, computerSelection)
-: value = "PAPER" ? playRound(paper, computerSelection)
-: playRound(scissors, computerSelection)  
-}
-*/
-/*====================== HUMAN CHOICE ==================================*/
+/*=========================== HUMAN CHOICE ==================================*/
 
 function pickRock() {
    document.getElementById('human-choice').src ='images/rockwins.png';
-   playRound("ROCK", computerSelection);
-    }
+   playRound(choice[0], computerSelection);
+    game();
+  }
 
 // function that displays paper! when human selects paper
 function pickPaper() {
    document.getElementById('human-choice').src ='images/paperwins.png'; 
    playRound(choice[1], computerSelection);
-}
+    game();
+    }
+
 // function that selects scissors when the human selects scissors
 function pickScissors() {
     document.getElementById('human-choice').src ='images/scissorswins.png'; 
     playRound(choice[2], computerSelection);
+    game();
+
 }
 
 
-/*====================== COMPUTER CHOICE ==================================*/
-
+/*=========================== COMPUTER CHOICE ==================================*/
 
 // function that instructs the cpu on how to make selections and display them
+
 function computerPlay() {
     let computerChoice = choice[Math.floor(Math.random() * choice.length)];
 
@@ -93,116 +88,168 @@ function computerPlay() {
     }
  }
 
-
-// create a function called humanPlay that iterates an array called choice
-// the iteration should only select from the array list when called 
-//
-
-
-/*====================== ROUNDS ==================================*/
-
+/*================================= ROUNDS ==================================*/
 
 function playRound(playerSelection, computerSelection)  {
-     //human selection 
     
-     p1 = playerSelection += [];
-
-    let p2 = computerSelection = computerPlay();
-
-    // console.log(`You choose ${p1}`); 
+    p1 = playerSelection += [];
     console.log(`You choose ${p1}`); 
 
+    let p2 = computerSelection = computerPlay();
     console.log(`Computer choose ${p2}`);
     
 switch (p1 === choice[0] || p1 === choice[1] || p1 === choice[2])   {
 
 // YOU BOTH PICKED ROCK 
     case (p1 === p2):
-    ties++;   
-    document.getElementById("game-round").children[5].innerText=`${ties++}`;
+    ties++
+    gameDrawn.innerText=`${ties}`;
+    gameMessage.textContent = '"It is a Draw!!"';
+    gameComment.textContent = " - Draws don't count here -";
     console.log("Play Again!!!");
-    document.querySelector('#game-message').textContent = `It's a Draw!!`;
-    return "Draw!!"
+    break;
 
 // YOU PICKED ROCK AND THE COMPUTER PICKED PAPER
     case (p1 === choice[0] && p2 === choice[1]): 
     rounds++;
-    computerScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#computer-score').textContent = `0${computerScore++}`;
+    cpu++;
+    gameRound.textContent = `${rounds}`;
+    computerScore.textContent = `0${cpu}`;
+    gameMessage.textContent = `"Computer Wins!! Paper Wraps Rock"`;
+    gameComment.textContent = " - Oops!! -";
     console.log("You Lose! Paper beats Rock");
-    document.querySelector('#game-message').textContent = `Computer Wins!! Paper Wraps`;
-    return "You Lose!! Paper beats Rock";
-
+    break;
 
 // YOU PICKED ROCK AND THE COMPUTER PICKED SCISSORS 
     case (p1 === choice[0] && p2 === choice[2]): 
     rounds++;
-    humanScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#human-score').textContent = `0${humanScore++}`;
+    you++;
+    gameRound.textContent = `${rounds}`;
+    humanScore.textContent = `0${you}`;
+    gameMessage.textContent = `"${name.innerText} Wins!! Rock Breaks Scissors"`;
+    gameComment.textContent = " - Nice Move!! -";
     console.log("You Win! Rock beats Scissors");
-    document.querySelector('#game-message').textContent = `${name.innerText} Wins!! Rock Breaks!!`;
-    return;
+    break;
 
 // YOU PICKED PAPER AND THE COMPUTER PICKED ROCK
     case (p1 === choice[1] && p2 === choice[0]): 
     rounds++;
-    humanScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#human-score').textContent = `0${humanScore++}`;
+    you++;
+    gameRound.textContent = `${rounds}`;
+    humanScore.textContent = `0${you}`;
+    gameMessage.textContent = `"${name.innerText} Wins!! Paper Wraps Rock"`;
+    gameComment.textContent = " - You are Good -";
     console.log("You Win! Paper beats Rock");
-    document.querySelector('#game-message').textContent = `${name.innerText} Wins!! Paper Wraps!!`;
-    return;
+    break;
 
 // YOU PICKED PAPER AND THE COMPUTER PICKED SCISSORS 
-    case (p1 === choice[1] && p2 === choice[2]): 
+    case (p1 === choice[1] && p2 === choice[2]):
     rounds++;
-    computerScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#computer-score').textContent = `0${computerScore++}`;
+    cpu++; 
+    gameRound.textContent = `${rounds}`;
+    computerScore.textContent = `0${cpu}`;
+    gameMessage.textContent = `"Computer Wins!! Scissors Cuts Paper"`;
+    gameComment.textContent = " - Hehe... Nice try - ";
     console.log("You Lose! Scissors beats Paper");
-    document.querySelector('#game-message').textContent = `Computer Wins!! Scissors Cuts!!`;
-    return;
+    break;
 
 // YOU PICKED SCISSORS AND COMPUTER PICKED ROCK     
     case (p1 === choice[2] && p2 === choice[0]): 
     rounds++;
-    computerScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#computer-score').textContent = `0${computerScore++}`;
+    cpu++;
+    gameRound.textContent = `${rounds}`;
+    computerScore.textContent = `0${cpu}`;
+    gameMessage.textContent = `"Computer Wins!! Rock Breaks Scissors"`;
+    gameComment.textContent = " - Yes, Computer Rocks!! - ";
     console.log("You Lose! Rock beats Scissors");
-    document.querySelector('#game-message').textContent = `Computer Wins!! Rock Breaks!!`;
-    return;
+    break;
 
 // YOU PICKED SCISSORS AND COMPUTER PICKED PAPER     
     case (p1 === choice[2] && p2 === choice[1]): 
     rounds++;
-    humanScore++;
-    document.getElementById("game-round").children[3].textContent = `${rounds++}`;
-    document.querySelector('#human-score').textContent = `0${humanScore++}`;
+    you++;
+    gameRound.textContent = `${rounds++}`;
+    humanScore.textContent = `0${you++}`;
+    gameMessage.textContent = `"${name.innerText} Wins!! Scissors Cuts Paper"`;
+    gameComment.textContent = " - Correct! -";
     console.log("You Win! Scissors beats Paper");
-    document.querySelector('#game-message').textContent = `${name.innerText} Wins!! Scissors Cuts!!`;
-    return;
+    break;
 }
 }
 
-/*
-function game ()  {                   
-    while (count < 1) {
-    console.log (`Human ${humanScore} : Computer ${computerScore}`);
-    }
-    //6. choose the winner of the round
-    if (humanScore > computerScore){
-        document.getElementsByClassName("message").innerText = " - You won the game - ";
-    }
-    else if (humanScore < computerScore){
-        document.getElementsByClassName("message").innerText = " - You lost the game - ";
-    }
-    else if (humanScore = computerScore){
-        document.getElementsByClassName("message").innerText = " - It was A Tie Round - ";
-    }
-    else {
-        document.getElementsByClassName("message").innerText = " - Make a Choice - ";
+/*======================    RESET    ==================================*/
+
+function reset() {
+    won = 0;
+    lost = 0; 
+
+    you = 0;
+    cpu = 0;
+
+    ties = 0;
+    rounds = 0;
+
+    games = 0;
+
+    humanScore.textContent = `0${you}`;
+    computerScore.textContent = `0${cpu}`;
+
+    gameDrawn.innerText = `${ties}`;
+    gameRound.textContent = `${rounds}`;
+    gamesPlayed.textContent = `${games}`;
+
+    humanWins.textContent = `0${won}`;
+    computerWins.textContent = `0${lost}`;
+
+    gameMessage.textContent = `"Hello, please make a choice"`;
+    gameComment.textContent = "- Best of Nine Games Wins -";
 }
-*/
+
+/*======= Game Counts ===========*/
+
+function game()  {  
+        if (rounds == 5 && rounds >= 5 ){
+            if (you > cpu){
+                won++;
+                games++;
+                youWin = 0;
+                cpuWin = 0;
+                you = 0;
+                cpu = 0;
+                ties = 0;
+                rounds = 0;
+                humanWins.textContent = `0${won}`;
+                gamesPlayed.textContent = `${games}`;
+                humanScore.textContent = `0${you}`;
+                computerScore.textContent = `0${cpu}`;
+                gameDrawn.innerText = `${ties}`;
+                gameMessage.textContent = ``;
+                gameRound.textContent = `${rounds}`;
+                alert(`YOU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click OK to Continue`);
+                }
+
+            else {
+                lost++;
+                games++;
+                youWin = 0;
+                cpuWin = 0;
+                you = 0;
+                cpu = 0;
+                ties = 0;
+                rounds = 0;
+                computerWins.textContent = `0${lost}`;
+                gamesPlayed.textContent = `${games}`;
+                humanScore.textContent = `0${you}`;
+                computerScore.textContent = `0${cpu}`;
+                gameDrawn.innerText = `${ties}`;
+                gameMessage.textContent = ``;
+                gameComment.textContent = "";
+                gameRound.textContent = `${rounds}`;
+                alert(`CPU WON!! \n\n Games Played: ${gamesPlayed.innerText} \n YOU: ${humanWins.innerText} \n CPU: ${computerWins.innerText} \n \n Click Ok to Continue`);
+                 }
+        }
+    }
+
+
+    
+

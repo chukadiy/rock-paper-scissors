@@ -24,7 +24,6 @@ body {
     background: linear-gradient(90deg, transparent 79px, #d4abab 79px, #d4abab 81px, transparent 81px),
     linear-gradient(rgb(247, 245, 245) .1em, transparent .1em);
     background-size: 100% 1.5em;
-
 }
 
 h1 {
@@ -57,9 +56,18 @@ p2 {
     letter-spacing: 3px;
     color: #767676;
     cursor: auto;
+    transition: 0.5s;
+
 }
-#human-name:hover {
+#human-name:hover{
     color: red;
+    font-size: 30px;
+}
+
+#human-name:hover:before {
+    color: red;
+    font-size: 30px;
+    content:'Edit:';
 }
 
 #human-wins {
@@ -75,12 +83,13 @@ p2 {
     letter-spacing: 1.5px;
     text-align: center;
     color: red;
+
 }
 #human-wins:hover {
     background-color:white;
     border: 1px solid pink ;
     border-radius: 6px;
- 
+    transition: 0.3s;
 }
 
 #computer-score {
@@ -94,6 +103,7 @@ p2 {
     grid-template-rows: 30px 20px; 
     padding: 20px;
     border-radius: 6px;
+    transition: 0.3s;
 }
 #computer-wins:hover {
     background-color:white;
@@ -128,6 +138,20 @@ p2 {
     padding: 5px;
 }
 
+#message {
+    background-color: white;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-top: 10px;
+    font-family: Helvetica, sans-serif;
+    color: red;
+    font-size: 25px; 
+    letter-spacing: 3px;
+}
+
 #game-message {
     font-family: arial;
     font-size: 20px; 
@@ -147,12 +171,11 @@ p2 {
     border: none; 
     z-index: 1; 
     cursor: pointer;
-
+    transition: 0.5s;
 }
 #game-restart:hover {
     color: white;
     background-color:red;
-
 }
 
 #game-display {
@@ -164,7 +187,7 @@ p2 {
     width: 530px;
     height: 200px;
     cursor: no-drop;
-
+    transition: opacity 2s linear; 
 }
 
 button#rock {
@@ -203,12 +226,13 @@ button#scissors:hover{
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.0);			
  }   
 
+
 .top {
     display: grid;
     font-size: 30px;
-    color: white;
+    color: gray ;
     padding: 10px; 
-    background-color: red ;
+    background-color:transparent;
     font-family: helvetica;
     font-weight: bold;
     justify-content:center;
@@ -220,6 +244,13 @@ button#scissors:hover{
     margin-bottom: 5px;
     border-radius: 10px;
     cursor: default;
+    border: 1px solid red; 
+    transition: 0.9s;
+}
+
+.top:hover {
+    color: white; 
+    background-color: red;
 }
 
 .center {
@@ -230,20 +261,6 @@ button#scissors:hover{
     grid-gap: 10px;
     justify-content: center;
     align-content: center;
-}
-
-.message {
-    background-color: white;
-    display: grid;
-    justify-self: center;
-    align-self: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    border-top: 10px;
-    font-family: Helvetica, sans-serif;
-    color: red;
-    font-size: 25px; 
-    letter-spacing: 3px;
 }
 
 .game-interface {
@@ -285,6 +302,8 @@ button#scissors:hover{
     justify-items: center;
     align-items: center;
     margin-top: 30px;
+    transition: 0.9s;
+
 }
 
 

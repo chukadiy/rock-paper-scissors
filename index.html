@@ -19,14 +19,12 @@
 
         <div class = "center">
 
-            <div class = "message">
-                - Best of 5 Rounds Wins  - 
-            </div>
+            <div id = "message"> - Best of 5 Wins - </div>
 
             <div class = "game-interface">
 
                 <div class = "human">
-                    <div id = "human-name" contentEditable="true"> Name?? </div>
+                    <div id = "human-name" contentEditable="true">Name</div>
                     <div id = "human-score"> 00 </div>
                     <div id = "human-wins"> 
                         <p2> Game Wins </p2> 
@@ -36,19 +34,19 @@
 
                 <div class = "game">
                         <div id = "game-round"> 
-                            <p2> Games Played : </p2> <span> 0 </span> 
-                            <p2> Rounds : </p2> <span> 0 </span>
-                            <p2> Draw : </p2> <span> 0 </span> 
+                            <p2> Games Played : </p2> <span>0</span> 
+                            <p2> Rounds : </p2> <span>0</span>
+                            <p2> Draw : </p2> <span>0</span> 
                         </div> 
 
-                        <div id = "game-message"> Rock, Paper or Scissors ?? </div>   
+                        <div id = "game-message"> "Rock, Paper or Scissors?" </div>   
 
                         <div id = "game-display">
                             <img id = "human-choice" src=""> 
                             <img id = "computer-choice" src=""> 
                         </div>     
                             
-                        <button id = "game-restart" type = "button" onclick=""> Restart </button>                           
+                        <button id = "game-restart" type = "button" onclick = reset()> Restart </button>                           
                 </div>
 
                 <div class = "computer">
@@ -61,19 +59,6 @@
                 </div>  
 
             </div>
-
- <!--       <div class = "roshambo">
-                <button id = "rock" onclick=pickRock() value = "ROCK"> 
-                    <img id = "rock-img" src="images/rock-select.png" alt="rock"> 
-                </button>
-               <button id = "paper" onclick=pickPaper() value = "PAPER"> 
-                   <img id = "paper-img" src="images/paper-select.png" alt="Paper"> 
-                </button>
-               <button id = "scissors" onclick=pickScissors() value = "SCISSORS"> 
-                   <img id = "scissors-img" src="images/scissors-select.png" alt ="Scissors"> 
-                </button>
-            </div>  
--->
 
             <div class="roshambo">
 
