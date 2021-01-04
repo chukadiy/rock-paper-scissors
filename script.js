@@ -41,9 +41,11 @@ const playerSelection = " ";
 const computerSelection = " "; 
 
 
-/*================================== Functions ===============================*/
+/*====================================================================*/
 
-/*=========================== HUMAN CHOICE ==================================*/
+/*=========================== Functions ===============================*/
+
+/*=========================== HUMAN CHOICE ============================*/
 
 function pickRock() {
    document.getElementById('human-choice').src ='images/rockwins.png';
@@ -66,8 +68,9 @@ function pickScissors() {
 
 }
 
+/*====================================================================*/
 
-/*=========================== COMPUTER CHOICE ==================================*/
+/*====================== COMPUTER CHOICE =============================*/
 
 // function that instructs the cpu on how to make selections and display them
 
@@ -88,7 +91,9 @@ function computerPlay() {
     }
  }
 
-/*================================= ROUNDS ==================================*/
+/*===================================================================*/
+
+/*======================== ROUNDS ==================================*/
 
 function playRound(playerSelection, computerSelection)  {
     
@@ -177,7 +182,7 @@ switch (p1 === choice[0] || p1 === choice[1] || p1 === choice[2])   {
 }
 }
 
-/*======================    RESET    ==================================*/
+/*=========================    RESET    ====================================*/
 
 function reset() {
     won = 0;
@@ -205,7 +210,7 @@ function reset() {
     gameComment.textContent = "- Best of Nine Games Wins -";
 }
 
-/*======= Game Counts ===========*/
+/*======================== Game Counts ====================================*/
 
 function game()  {  
         if (rounds == 5 && rounds >= 5 ){
