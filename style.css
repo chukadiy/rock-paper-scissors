@@ -11,10 +11,14 @@ htnl {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif, Arial, Helvetica, sans-serif;
 }
 
+@media screen and (max-width: 992px) {
+
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color:transparent;
+    background-color: transparent;
     display: grid; 
     grid-template-rows: 60px 600px; 
     grid-gap: 0px;
@@ -57,15 +61,15 @@ p2 {
     color: #767676;
     cursor: auto;
     transition: 0.5s;
-
 }
+
 #human-name:hover{
-    color: red;
+    color: #ccc;
     font-size: 30px;
 }
 
 #human-name:hover:before {
-    color: red;
+    color: #ccc;
     font-size: 30px;
     content:'Edit:';
 }
@@ -254,9 +258,7 @@ button#scissors:hover{
 }
 
 .center {
-    width: 60% ; 
     display: grid; 
-    grid-template-columns: 80%;
     grid-template-rows: 100px 1fr 100px; 
     grid-gap: 10px;
     justify-content: center;
