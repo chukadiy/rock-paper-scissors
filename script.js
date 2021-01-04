@@ -45,7 +45,7 @@ const computerSelection = " ";
 
 /*=========================== Functions ===============================*/
 
-/*=========================== HUMAN CHOICE ============================*/
+/*=========================== HUMAN CHOICE ==================================*/
 
 function pickRock() {
    document.getElementById('human-choice').src ='images/rockwins.png';

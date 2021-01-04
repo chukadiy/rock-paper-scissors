@@ -86,13 +86,35 @@ p2 {
     letter-spacing: 1.5px;
     text-align: center;
     color: red;
-
 }
+
 #human-wins:hover {
     background-color:white;
     border: 1px solid pink ;
     border-radius: 6px;
     transition: 0.3s;
+}
+
+#human-wins .hover-text{
+  content: " ";  
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  opacity: 0.7;
+  left: 17%;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  transition: opacity 1s;
+  /* Position the .hover-text */
+  position: absolute;
+  z-index: 100;
+}
+
+#human-wins:hover .hover-text{
+    visibility: visible;
 }
 
 #computer-score {
@@ -108,11 +130,11 @@ p2 {
     border-radius: 6px;
     transition: 0.3s;
 }
+
 #computer-wins:hover {
     background-color:white;
     border: 1px solid pink ; 
     border-radius: 6px;
-
 }
 
 #computer-wins span {
@@ -122,6 +144,28 @@ p2 {
     text-align: center;
     color: red;
     cursor: no-drop;
+}
+
+#computer-wins .hover-text{
+  content: " ";  
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  opacity: 0.7;
+  left: 70%;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  transition: opacity 1s;
+  /* Position the .hover-text */
+  position: absolute;
+  z-index: 100;
+}
+
+#computer-wins:hover .hover-text{
+    visibility: visible;
 }
 
 #computer-name {
@@ -232,7 +276,7 @@ button#scissors:hover{
 
 .top {
     display: grid;
-    font-size: 30px;
+    font-size: 25px;
     color: gray ;
     padding: 10px; 
     background-color:transparent;
@@ -251,16 +295,16 @@ button#scissors:hover{
     transition: 0.9s;
 }
 
-.top h4 {
-    color: white;
-    font-size: 15px;
 
+.top:hover span{
+    display: none;
 }
 
-.top:hover {
-    color: white; 
-    background-color: red;
+.top:hover:before{
+    content:"follow me on socials @chukadiy";
+    color: #ccc; 
 }
+
 
 .center {
     display: grid; 
