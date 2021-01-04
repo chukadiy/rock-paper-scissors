@@ -12,7 +12,6 @@ htnl {
 }
 
 @media screen and (max-width: 992px) {
-
 }
 
 body {
@@ -250,6 +249,12 @@ button#scissors:hover{
     cursor: default;
     border: 1px solid red; 
     transition: 0.9s;
+}
+
+.top h4 {
+    color: white;
+    font-size: 15px;
+
 }
 
 .top:hover {
